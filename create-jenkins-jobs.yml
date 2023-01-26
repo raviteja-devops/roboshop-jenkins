@@ -4,3 +4,6 @@
   roles:
     - jenkins
 
+# install package in running machine
+# sudo pip3.9 install python-jenkins
+
