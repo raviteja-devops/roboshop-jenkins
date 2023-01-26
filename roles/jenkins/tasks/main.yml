@@ -7,6 +7,6 @@
     password: "{{jenkins_password}}"
   loop: "{{ folders }}"
 
-- name: Include Pipeline Jobs
+- name: Create Pipeline Jobs
   ansible.builtin.include_tasks: pipeline.yml
   loop: "{{ pipeline_jobs }}"
