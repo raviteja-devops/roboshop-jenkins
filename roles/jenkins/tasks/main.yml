@@ -1,20 +1,12 @@
-- name: Create Config File
-  ansible.builtin.template:
-    src: job.xml
-    dest: /tmp/job.xml
-
-- name: Create a jenkins job using basic authentication
+- name: Create Folder
   community.general.jenkins_job:
-    config: "{{ lookup('file', '/tmp/job.xml') }}"
+    config: "{{ lookup('file', 'templates/folder.xml') }}"
     name: "{{item}}"
     url: http://172.31.7.194:8080
     user: admin
-    password: "{{jenkins_passsword}}"
-    loop:
-      - frontend
-      - catalogue
-      - user
-      - cart
-      - shipping
-      - payment
-      - dispatch
+    password: "{{jenkins_password}}"
+  loop: "{{ folders }}"
+
+- name: Include Pipeline Jobs
+  ansible.builtin.include_tasks: pipeline.yml
+  loop: "{{ pipeline_jobs }}"
