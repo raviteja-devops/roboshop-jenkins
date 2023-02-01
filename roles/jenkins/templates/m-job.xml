@@ -27,7 +27,7 @@
         <data>
             <jenkins.branch.BranchSource>
                 <source class="jenkins.plugins.git.GitSCMSource" plugin="git">
-                    <id>f09ecff9-b513-49bc-99da-2cb2ea3b5226</id>
+                    <id>{{unique_key}}</id>
                     <remote>https://github.com/raviteja-devops/{{item.name}}.git</remote>
                     <credentialsId></credentialsId>
                     <traits>
