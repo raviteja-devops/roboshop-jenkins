@@ -3,6 +3,7 @@
   register: out
   ignore_errors: yes
 # we are checking if job exists or not through jenkins cli in command line and applying it same here
+# if job exists then skip; if it is == 3 then job doesnot exist, so create, else ignore
 # we downloaded jenkins-cli at /opt/jenkins-cli.jar from manage jenkins - jenkins-cli
 
 - name: Create Config file - {{item.dir}}/{{item.name}}
