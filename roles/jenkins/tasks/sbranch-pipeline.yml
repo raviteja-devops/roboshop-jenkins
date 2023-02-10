@@ -2,7 +2,8 @@
   ansible.builtin.shell: java -jar /opt/jenkins-cli.jar -auth admin:{{jenkins_password}} -s http://172.31.7.194:8080 -webSocket get-job {{item.dir}}/{{item.name}}
   register: out
   ignore_errors: yes
-
+# we are checking if job exists or not through jenkins cli in command line and applying it same here
+# we downloaded jenkins-cli at /opt/jenkins-cli.jar from manage jenkins - jenkins-cli
 
 - name: Create Config file - {{item.dir}}/{{item.name}}
   ansible.builtin.template:
